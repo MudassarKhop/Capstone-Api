@@ -35,7 +35,7 @@ router.post("/register", (req, res) => {
 			pcell,
 			role,
 		};
-		con.query(sql, passenger, (err, result) => {
+		con.query(sql, passengers, (err, result) => {
 			if (err) throw err;
 			console.log(result);
 			res.send(
@@ -55,7 +55,7 @@ router.post("/login", (req, res) => {
 	try {
 		let sql = "SELECT * FROM passengers WHERE ?";
 		let user = {
-			email: req.body.pemail,
+			pemail: req.body.pemail,
 		};
 		con.query(sql, user, async (err, result) => {
 			if (err) throw err;

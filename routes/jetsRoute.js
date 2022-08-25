@@ -30,7 +30,7 @@ router.post("/", (req, res) => {
 router.get("/:id", (req, res) => {
 	try {
 		con.query(
-			`SELECT * FROM flight_details where flight_id= ${req.params.id} `,
+			`SELECT * FROM jets where jet_id= ${req.params.id} `,
 			(err, result) => {
 				if (err) throw err;
 				res.send(result);
@@ -41,16 +41,27 @@ router.get("/:id", (req, res) => {
 		res.status(400).send(error);
 	}
 });
-router.put("/:id", (req, res) => {
-	const { category_id, name, description, thumbnail } = req.body;
+router.patch("/:id", (req, res) => {
 	try {
-		con.query(
-			`UPDATE flight_details SET flight_id="${flight_id}","${flight_departure_date}","${price}" WHERE flight_id= ${req.params.id}`,
-			(err, result) => {
-				if (err) throw err;
-				res.send(result);
+		let sql = "SELECT * FROM jets WHERE ? ";
+		let jet = { jet_id: req.params.id };
+		con.query(sql, jet, (err, result) => {
+			if (err) throw err;
+			if (result.length !== 0) {
+				let updateSql = `UPDATE jets SET ? WHERE jet_id = ${req.params.id}`;
+				let updateUser = {
+					jet_id: req.body.jet_id,
+					jet_name: req.body.jet_name,
+					jet_type: req.body.jet_type,
+				};
+				con.query(updateSql, updateUser, (err, updated) => {
+					if (err) throw err;
+					res.send("Successfully updated Jet");
+				});
+			} else {
+				res.send("Jet not found");
 			}
-		);
+		});
 	} catch (error) {
 		console.log(error);
 	}
@@ -58,7 +69,7 @@ router.put("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
 	try {
 		con.query(
-			`Delete from flight_details WHERE flight_id= ${req.params.id}`,
+			`Delete from jets WHERE jet_id= ${req.params.id}`,
 			(err, result) => {
 				if (err) throw err;
 				res.send(result);
