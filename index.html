@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/styles/style.css" />
+        <!-- <link rel="stylesheet" href="/style.css"> -->
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
 			rel="stylesheet"
@@ -16,44 +16,180 @@
 			integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
 			crossorigin="anonymous"
 		></script>
+<style>
+	#api{
+     display: flex;
+     flex-direction: row;
+     flex-wrap: nowrap;
+     justify-content: center;
+     align-items: center;
+	 min-height: 100vh;
+	 padding-top: 2%;
+	 background-color: #AC393B;
+	}
 
+#tables{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+table{    background: #212529;
+background: #212529;
+box-shadow:  9px 9px 31px #1b1e21,
+             -9px -9px 31px #272c31;;
+	
+}
+</style>
 		<title>API</title>
 	</head>
-	<div id="tables">
-		<table class="table" style="width: 800px">
-			<thead>
-				<th>Request Method</th>
-				<th>URL</th>
-				<th>Effect</th>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row">GET</th>
-					<td colspan="1" class="table-active">'/'</td>
-					<td>Get all items</td>
-				</tr>
-				<tr>
-					<th scope="row">GET</th>
-					<td colspan="1" class="table-active">'/:id'</td>
-					<td>Get single item</td>
-				</tr>
-				<tr>
-					<th scope="row">Post</th>
-					<td colspan="1" class="table-active">'/'</td>
-					<td>Create adn item</td>
-				</tr>
-				<tr>
-					<th scope="row">Patch</th>
-					<td colspan="1" class="table-active">'/:id'</td>
-					<td>Edit/Update an item</td>
-				</tr>
-				<tr>
-					<th scope="row">Delete</th>
-					<td colspan="1" class="table-active">'/:id'</td>
-					<td>Remove an item</td>
-				</tr>
-			</tbody>
-		</table>
+	<section id="api">
+		<div id="tables">
+			<table class="table table-dark text-light" style="width: 800px">
+				<thead><th colspan="3" class="text text-center">FLIGHTS</th></thead>
+				<thead>
+					<th>Request Method</th>
+					<th>URL</th>
+					<th>Effect</th>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">GET</th>
+						<td colspan="1" class="table-active">'/'</td>
+						<td>Get all items</td>
+					</tr>
+					<tr>
+						<th scope="row">GET</th>
+						<td colspan="1" class="table-active">'/:id'</td>
+						<td>Get single item</td>
+					</tr>
+					<tr>
+						<th scope="row">Post</th>
+						<td colspan="1" class="table-active">'/'</td>
+						<td>Create an item</td>
+					</tr>
+					<tr>
+						<th scope="row">Patch</th>
+						<td colspan="1" class="table-active">'/:id'</td>
+						<td>Edit/Update an item</td>
+					</tr>
+					<tr>
+						<th scope="row">Delete</th>
+						<td colspan="1" class="table-active">'/:id'</td>
+						<td>Remove an item</td>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<table class="table table-dark text-light" style="width: 800px">
+				<thead><th colspan="3" class="text text-center">Jets</th></thead>
+				<thead>
+					<th>Request Method</th>
+					<th>URL</th>
+					<th>Effect</th>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">GET</th>
+						<td colspan="1" class="table-active">'/'</td>
+						<td>Get all items</td>
+					</tr>
+					<tr>
+						<th scope="row">GET</th>
+						<td colspan="1" class="table-active">'/:id'</td>
+						<td>Get single item</td>
+					</tr>
+					<tr>
+						<th scope="row">Post</th>
+						<td colspan="1" class="table-active">'/'</td>
+						<td>Create an item</td>
+					</tr>
+					<tr>
+						<th scope="row">Patch</th>
+						<td colspan="1" class="table-active">'/:id'</td>
+						<td>Edit/Update an item</td>
+					</tr>
+					<tr>
+						<th scope="row">Delete</th>
+						<td colspan="1" class="table-active">'/:id'</td>
+						<td>Remove an item</td>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<table class="table table-dark text-light" style="width: 800px">
+				<thead><th colspan="3" class="text text-center">Tickets</th></thead>
+				<thead>
+					<th>Request Method</th>
+					<th>URL</th>
+					<th>Effect</th>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">GET</th>
+						<td colspan="1" class="table-active">'/'</td>
+						<td>Get all items</td>
+					</tr>
+					<tr>
+						<th scope="row">GET</th>
+						<td colspan="1" class="table-active">'/:id'</td>
+						<td>Get single item</td>
+					</tr>
+					<tr>
+						<th scope="row">Post</th>
+						<td colspan="1" class="table-active">'/'</td>
+						<td>Create an item</td>
+					</tr>
+					<tr>
+						<th scope="row">Patch</th>
+						<td colspan="1" class="table-active">'/:id'</td>
+						<td>Edit/Update an item</td>
+					</tr>
+					<tr>
+						<th scope="row">Delete</th>
+						<td colspan="1" class="table-active">'/:id'</td>
+						<td>Remove an item</td>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<table class="table table-dark text-light" style="width: 800px">
+				<thead><th colspan="3" class="text text-center">Passengers</th></thead>
+				<thead>
+					<th>Request Method</th>
+					<th>URL</th>
+					<th>Effect</th>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">GET</th>
+						<td colspan="1" class="table-active">'/'</td>
+						<td>Get all items</td>
+					</tr>
+					<tr>
+						<th scope="row">GET</th>
+						<td colspan="1" class="table-active">'/:id'</td>
+						<td>Get single item</td>
+					</tr>
+					<tr>
+						<th scope="row">Post</th>
+						<td colspan="1" class="table-active">'/'</td>
+						<td>Create an item</td>
+					</tr>
+					<tr>
+						<th scope="row">Patch</th>
+						<td colspan="1" class="table-active">'/:id'</td>
+						<td>Edit/Update an item</td>
+					</tr>
+					<tr>
+						<th scope="row">Delete</th>
+						<td colspan="1" class="table-active">'/:id'</td>
+						<td>Remove an item</td>
+					</tr>
+				</tbody>
+			</table>
+	</section>
 	</div>
 
 	<script

@@ -13,9 +13,9 @@ module.exports = function (req, res, next) {
 	try {
 		// Decoding the token and getting user attached to the token
 		const decoded = jwt.verify(token, process.env.jwtSecret);
-
+		console.log(decoded);
 		// Storing User data in req.user
-		req.user = decoded.user;
+		req.passenger = decoded.user;
 		next();
 	} catch (err) {
 		res.status(401).json({ msg: "Token is not valid" });
