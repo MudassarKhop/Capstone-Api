@@ -16,13 +16,23 @@ router.post("/", (req, res) => {
 		flight_id,
 		flight_date,
 		from_destination,
+		fda,
 		to_destination,
+		tda,
 		jet_id,
 		duration,
+		img1,
+		img2,
+		img3,
+		img4,
+		boarding,
+		departure,
+		qr,
+		info,
 	} = req.body;
 	try {
 		con.query(
-			`INSERT INTO flights (flight_id,flight_date,from_destination,to_destination,jet_id,duration) values ("${flight_id}", "${flight_date}", "${from_destination}", "${to_destination}", "${jet_id}", "${duration}")`,
+			`INSERT INTO flights (flight_id,flight_date,from_destination,fda,to_destination,tda,jet_id,duration,img1,img2,img3,img4,boarding,departure,qr,info) values ("${flight_id}", "${flight_date}", "${from_destination}","${fda}", "${to_destination}","${tda}", "${jet_id}", "${duration}", "${img1}", "${img2}", "${img3}", "${img4}", "${boarding}", "${departure}", "${qr}","${info}")`,
 			(err, result) => {
 				if (err) throw err;
 				res.send(result);
@@ -59,9 +69,19 @@ router.patch("/:id", (req, res) => {
 					flight_id: req.body.flight_id,
 					flight_date: req.body.flight_date,
 					from_destination: req.body.from_destination,
+					fda: req.body.fda,
 					to_destination: req.body.to_destination,
+					tda: req.body.tda,
 					jet_id: req.body.jet_id,
 					duration: req.body.duration,
+					img1: req.body.img1,
+					img2: req.body.img2,
+					img3: req.body.img3,
+					img4: req.body.img4,
+					boarding: req.body.boarding,
+					departure: req.body.departure,
+					qr: req.body.qr,
+					info: req.body.info,
 				};
 				con.query(updateSql, updateUser, (err, updated) => {
 					if (err) throw err;
