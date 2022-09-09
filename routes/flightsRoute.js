@@ -85,10 +85,12 @@ router.patch("/:id", (req, res) => {
 				};
 				con.query(updateSql, updateUser, (err, updated) => {
 					if (err) throw err;
-					res.send("Successfully updated Flight Details");
+					res.json({
+						msg: "Successfully updated Flight Details",
+					});
 				});
 			} else {
-				res.send("Flight not found");
+				res.json({ msg: "Flight not found" });
 			}
 		});
 	} catch (error) {
