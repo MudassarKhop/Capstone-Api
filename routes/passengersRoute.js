@@ -3,22 +3,22 @@ const router = express.Router();
 const con = require("../lib/dbConnection");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const middleware = require("../middleware/auth");
+// const  = require("..//auth");
 
-router.get("/", middleware, (req, res) => {
-	if (req.passenger.p_role === "admin") {
-		try {
-			con.query("SELECT * FROM passengers", (err, result) => {
-				if (err) throw err;
-				res.send(result);
-			});
-		} catch (error) {
-			console.log(error);
-			res.status(400).send(error);
-		}
-	} else {
-		res.send("You are not an admin");
+router.get("/", (req, res) => {
+	// if (req.passenger.p_role === "admin") {
+	try {
+		con.query("SELECT * FROM passengers", (err, result) => {
+			if (err) throw err;
+			res.send(result);
+		});
+	} catch (error) {
+		console.log(error);
+		res.status(400).send(error);
 	}
+	// } else {
+	// 	res.send("You are not an admin");
+	// }
 });
 // Register Route
 // The Route where Encryption starts
