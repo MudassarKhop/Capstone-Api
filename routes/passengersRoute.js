@@ -3,7 +3,6 @@ const router = express.Router();
 const con = require("../lib/dbConnection");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const middleware = require("../middleware/auth")
 // const  = require("..//auth");
 
 router.get("/", (req, res) => {
@@ -21,39 +20,6 @@ router.get("/", (req, res) => {
 	// 	res.send("You are not an admin");
 	// }
 });
-router.put("/:id", middleware, (req, res) => {
-	try {
-	  const strQry = `UPDATE passengers SET ? WHERE id = ${req.params.id}`;
-	  const {
-		passenger_id,
-		pname,
-		psurname,
-		pemail,
-		pcell,
-		prole
-	  } = req.body
-  
-	  const user = {
-		passenger_id,
-		pname,
-		psurname,
-		pemail,
-		pcell,
-		prole
-	  }
-	  con.query(strQry, passenger, (err, results) => {
-		if (err) throw err;
-  
-		res.json({
-		  msg: "Updated Successfully"
-		})
-	  })
-	} catch (error) {
-	  res.send(400).json({
-		error
-	  })
-	}
-  })
 // Register Route
 // The Route where Encryption starts
 router.post("/register", (req, res) => {
