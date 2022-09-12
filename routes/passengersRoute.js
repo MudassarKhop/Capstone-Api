@@ -31,7 +31,7 @@ router.post("/register", (req, res) => {
 		const hash = bcrypt.hashSync(password, salt);
 		// The start of hashing / encryption
 		let passengers = {
-			passenger_id,
+			// passenger_id,
 			pname,
 			psurname,
 			pemail,
@@ -42,11 +42,9 @@ router.post("/register", (req, res) => {
 		con.query(sql, passengers, (err, result) => {
 			if (err) throw err;
 			console.log(result);
-			res.send(
-				`passenger ${
-					(passengers.pname, passengers.pemail)
-				} created successfully`
-			);
+			res.json({
+				msg: "Registration Successful",
+			});
 		});
 	} catch (error) {
 		console.log(error);
